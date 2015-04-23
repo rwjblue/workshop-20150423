@@ -4,7 +4,15 @@ module.exports = function(environment) {
   var ENV = {
     modulePrefix: 'ember-listings',
     environment: environment,
-    contentSecurityPolicy: { 'connect-src': "'self' wss://*.firebaseio.com" },
+    contentSecurityPolicy: {
+      'default-src': "'none'",
+      'script-src': "'self' 'unsafe-eval' 'unsafe-inline' use.typekit.net https://*.firebaseio.com *.googleapis.com *.gstatic.com",
+      'connect-src': "'self' www.google-analytics.com wss://*.firebaseio.com",
+      'font-src': "'self' data: fonts.gstatic.com",
+      'img-src': "'self' p.typekit.net google-analytics.com lorempixel.com *.googleapis.com *.gstatic.com placeimg.com *.imgur.com",
+      'style-src': "'self' 'unsafe-inline' use.typekit.net fonts.googleapis.com",
+      'media-src': "'self'"
+    },
     firebase: 'https://' + process.env.FIREBASE_DB_NAME + '.firebaseio.com/',
     baseURL: '/',
     locationType: 'auto',

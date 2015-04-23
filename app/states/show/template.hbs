@@ -1,5 +1,14 @@
-{{#each model.listings as |listing|}}
-  <div class="small-12 medium-6 large-6 columns">
-    {{listing-card listing=listing}}
+<div class="stateWrapper">
+  <div class="listings-container">
+    {{hero-section name=model.name backgroundImage=model.backgroundImage}}
+    {{#each model.listings as |listing|}}
+      <div class="small-12 medium-6 large-6 columns">
+        {{listing-card listing=listing}}
+      </div>
+    {{/each}}
   </div>
-{{/each}}
+
+  <div class="googleMap-container">
+    {{google-map lat=model.lat lng=model.lng listings=model.listings}}
+  </div>
+</div>
