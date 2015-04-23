@@ -1,5 +1,8 @@
-<ul class="state-container">
+<div class="row">
   {{#each model as |state|}}
-    <li class="state">{{link-to state.name 'states.show' state}}</li>
+    {{#link-to 'states.show' state class="state"}}
+      {{hero-section name=state.name backgroundImage=state.backgroundImage}}
+      <br/>
+    {{/link-to}}
   {{/each}}
-</ul>
+</div>

@@ -30,7 +30,7 @@ test('visiting /states', function(assert) {
 
 test('clicking on a state we are transitioned into the states/show route', function(assert) {
   visit('/states');
-  click('.state:first-child a');
+  click('.state:first-child');
 
   andThen(() => {
     assert.equal(currentRouteName(), 'states.show');
