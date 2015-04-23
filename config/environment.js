@@ -4,6 +4,8 @@ module.exports = function(environment) {
   var ENV = {
     modulePrefix: 'ember-listings',
     environment: environment,
+    contentSecurityPolicy: { 'connect-src': "'self' wss://*.firebaseio.com" },
+    firebase: 'https://' + process.env.FIREBASE_DB_NAME + '.firebaseio.com/',
     baseURL: '/',
     locationType: 'auto',
     EmberENV: {
