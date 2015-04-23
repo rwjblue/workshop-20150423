@@ -13,7 +13,20 @@ function getStore(app) {
 export function createState(app, details = defaultState) {
   const store = getStore(app);
 
+  let record;
+
   run(() => {
-    store.createRecord('state', details);
+    record = store.createRecord('state', details);
   });
+
+  return record;
+}
+
+export function createListings(state, ...listingsData) {
+  return state.get('listings')
+    .then((relation) => {
+      return listingsData.map((listingData) => {
+        return relation.createRecord(listingData);
+      });
+    });
 }

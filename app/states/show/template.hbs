@@ -1,1 +1,5 @@
-{{outlet}}
+{{#each model.listings as |listing|}}
+  <div class="small-12 medium-6 large-6 columns">
+    {{listing-card listing=listing}}
+  </div>
+{{/each}}
