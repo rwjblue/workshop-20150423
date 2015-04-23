@@ -4,12 +4,14 @@ import {
   test
 } from 'qunit';
 import startApp from 'ember-listings/tests/helpers/start-app';
+import * as seedHelpers  from '../helpers/seed-data';
 
 var application;
 
-module('Acceptance: Index', {
+module('Acceptance: States', {
   beforeEach: function() {
     application = startApp();
+    seedHelpers.createState(application);
   },
 
   afterEach: function() {
@@ -17,8 +19,8 @@ module('Acceptance: Index', {
   }
 });
 
-test('visiting / redirects to /states', function(assert) {
-  visit('/');
+test('visiting /states', function(assert) {
+  visit('/states');
 
   andThen(function() {
     assert.equal(currentURL(), '/states');
