@@ -6,5 +6,7 @@ var Router = Ember.Router.extend({
 });
 
 export default Router.map(function() {
-  this.route('states');
+  this.route('states', function() {
+    this.route('show', { path: ':abbreviation' });
+  });
 });

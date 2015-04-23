@@ -22,7 +22,17 @@ module('Acceptance: States', {
 test('visiting /states', function(assert) {
   visit('/states');
 
-  andThen(function() {
-    assert.equal(currentURL(), '/states');
+  andThen(() => {
+    const states = find('.state');
+    assert.ok(states.length > 0, 'has states rendered');
+  });
+});
+
+test('clicking on a state we are transitioned into the states/show route', function(assert) {
+  visit('/states');
+  click('.state:first-child a');
+
+  andThen(() => {
+    assert.equal(currentRouteName(), 'states.show');
   });
 });

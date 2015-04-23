@@ -1,0 +1,5 @@
+<ul class="state-container">
+  {{#each model as |state|}}
+    <li class="state">{{link-to state.name 'states.show' state}}</li>
+  {{/each}}
+</ul>
